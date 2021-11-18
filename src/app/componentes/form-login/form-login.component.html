@@ -1,0 +1,33 @@
+<form [formGroup]="autenticarse" class="mb-4">
+    <div class="input-group input-group-lg mt-4 mb-5">
+        <input type="text" [(ngModel)]="login.matricula" formControlName="matricula" class="form-control "
+            aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="matricula"
+            placeholder="Matricula" [ngClass]="{ 'is-invalid':submitted && f.matricula.errors }">
+        <span style="position:absolute; right:8px;top:8px;" class="fa fa-address-card fa-2x"></span>
+        <div *ngIf="submitted && f.matricula.errors" class="invalid-feedback">
+            <div *ngIf="f.matricula.errors.required">Introduce tu matricual.</div>
+            <div *ngIf="f.matricula.errors.minLength">Tu matricual debe ser de 9 digitos.</div>
+        </div>
+    </div>
+    <div class="input-group input-group-lg mt-4 mb-2">
+        <input type="password" [(ngModel)]="login.password" formControlName="password"
+            class="form-control" aria-label="Sizing example input"
+            aria-describedby="inputGroup-sizing-lg" id="contrasenia" placeholder="Contraseña"
+            [ngClass]="{ 'is-invalid':submitted && f.password.errors }">
+        <span style="position:absolute; right:8px;top:8px;" class="fa fa-unlock-alt fa-2x"></span>
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Introduce tu constraseña.</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+            <p class="text-left"><a>Olvide mi contraseña</a></p>
+        </div>
+        <div class="col-sm">
+            <p class="text-end"><a>Registrarme</a></p>
+        </div>
+    </div>
+    <div class="text-center form-group">
+        <button type="submit" class="btn btn-primary btn-lg">Ingresar</button>
+    </div>
+</form>
