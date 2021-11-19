@@ -25,7 +25,7 @@ export class FormLoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get f(){ 
-    return this.autenticarse.controls;
+  get matricula(){ 
+    return this.autenticarse.get('matricula');
   }
 }
