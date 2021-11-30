@@ -38,7 +38,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports:[
     FormLoginComponent,
-    BarraNavegacionComponent
+    BarraNavegacionComponent,
+    MenuAlumnoComponent
   ]
 })
 export class ComponentesModule { }
