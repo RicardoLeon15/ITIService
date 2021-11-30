@@ -1,0 +1,5 @@
+.container { 
+    background: rgb(56, 91, 247); 
+    min-height: 100vh;
+    min-width: 100vmax; 
+   }

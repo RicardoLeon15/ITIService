@@ -1,32 +1,34 @@
 <form [formGroup]="autenticarse" class="mb-4">
     <div class="input-group input-group-lg mt-4 mb-5">
-        <input type="text" [(ngModel)]="login.matricula" formControlName="matricula" class="form-control "
+        <input type="text" [(ngModel)]="login.matricula" formControlName="matricula" class="form-control"
             aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" id="matricula"
-            placeholder="Matricula" [ngClass]="{ 'is-invalid':submitted }">
+            placeholder="Matricula" [ngClass]="{ 'is-invalid':submitted && f['matricula'].errors }" minlength="9" maxlength="9">
         <span style="position:absolute; right:8px;top:8px;" class="fa fa-address-card fa-2x"></span>
-        <div *ngIf="submitted " class="invalid-feedback">
-            
+        <div *ngIf="submitted && f['matricula'].errors" class="invalid-feedback">
+            <div *ngIf="f['matricula'].errors['required']">Debes introducir tu matricula.</div>
+            <div *ngIf="f['matricula'].errors['minlength']">Debes introducir una matricula de 9 caracteres.</div>
         </div>
     </div>
     <div class="input-group input-group-lg mt-4 mb-2">
         <input type="password" [(ngModel)]="login.password" formControlName="password"
             class="form-control" aria-label="Sizing example input"
             aria-describedby="inputGroup-sizing-lg" id="contrasenia" placeholder="Contraseña"
-            [ngClass]="{ 'is-invalid':submitted }">
+            [ngClass]="{ 'is-invalid':submitted && f['password'].errors }" minlength="9">
         <span style="position:absolute; right:8px;top:8px;" class="fa fa-unlock-alt fa-2x"></span>
-        <div *ngIf="submitted" class="invalid-feedback">
-            
+        <div *ngIf="submitted &&  f['password'].errors" class="invalid-feedback">
+            <div *ngIf="f['password'].errors['required']">Debes introducir tu contraseña.</div>
+            <div *ngIf="f['password'].errors['minlength']">Tu contraseña debe tener mínimo 9 caracteres.</div>
         </div>
     </div>
     <div class="row">
         <div class="col-sm">
-            <p class="text-left"><a>Olvide mi contraseña</a></p>
+            <p class="text-left text-light"><a>Olvide mi contraseña</a></p>
         </div>
         <div class="col-sm">
-            <p class="text-end"><a>Registrarme</a></p>
+            <p class="text-end text-light"><a>Registrarme</a></p>
         </div>
     </div>
     <div class="text-center form-group">
-        <button type="submit" class="btn btn-primary btn-lg">Ingresar</button>
+        <button type="submit" class="btn btn-outline-light btn-lg" (click)="Autenticarse()">Ingresar</button>
     </div>
 </form>

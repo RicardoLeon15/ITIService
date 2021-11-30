@@ -12,6 +12,7 @@ import { ProyecciondeMateriasComponent } from './proyeccionde-materias/proyeccio
 import { FormModificarPerfilAlumnoComponent } from './form-modificar-perfil-alumno/form-modificar-perfil-alumno.component';
 import { FormModificarPerfilAdministradorComponent } from './form-modificar-perfil-administrador/form-modificar-perfil-administrador.component';
 import { FormAgregarAlumnoComponent } from './form-agregar-alumno/form-agregar-alumno.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -32,7 +33,8 @@ import { FormAgregarAlumnoComponent } from './form-agregar-alumno/form-agregar-a
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports:[
     FormLoginComponent,

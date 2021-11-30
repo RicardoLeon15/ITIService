@@ -7,7 +7,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BarraNavegacionComponent implements OnInit {
 
-  constructor() { }
+  isCollapse = true;
+  Nombre:string|null;
+
+    toggleState(): void {
+        let foo = this.isCollapse;
+        this.isCollapse = foo === false ? true : false; 
+    }
+
+  constructor() {
+    let a=localStorage.getItem('token');
+    if(a){
+      var aux=JSON.parse(a); 
+    }
+    this.Nombre = aux["nombre"];
+   }
 
   ngOnInit(): void {
   }
