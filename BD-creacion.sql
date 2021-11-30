@@ -26,6 +26,10 @@ SET time_zone = "+00:00";
 --
 -- Estructura de tabla para la tabla `administrador`
 --
+DROP if exists DATABASE itiservice;
+
+CREATE DATABASE itiservice;
+USE itiservice;
 
 CREATE TABLE `administrador` (
   `IdAministrador` int(11) NOT NULL
