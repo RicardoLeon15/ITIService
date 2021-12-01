@@ -5,6 +5,7 @@ import { AdministradorComponent } from './vistas/administrador/administrador.com
 import { AlumnoComponent } from './vistas/alumno/alumno.component';
 import { LoginComponent } from './vistas/login/login.component';
 import { ProyeccionMateriasComponent } from './vistas/proyeccion-materias/proyeccion-materias.component';
+import { MapaGraficoComponent } from './vistas/mapa-grafico/mapa-grafico.component';
 
 
 const routes: Routes = [
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'Administrador', component: AdministradorComponent},
   {path: 'MateriasCursando', component: MateriasCursandoComponent},
   {path: 'ProyeccionMaterias', component: ProyeccionMateriasComponent},
+  {path: 'MapaGrafico', component:MapaGraficoComponent},
   {path: '**', pathMatch: 'full' ,redirectTo: 'login'}
 ];
 

@@ -6,6 +6,7 @@ import { AlumnoComponent } from './alumno/alumno.component';
 import { AdministradorComponent } from './administrador/administrador.component';
 import { ProyeccionMateriasComponent } from './proyeccion-materias/proyeccion-materias.component';
 import { MateriasCursandoComponent } from './materias-cursando/materias-cursando.component';
+import { MapaGraficoComponent } from './mapa-grafico/mapa-grafico.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { MateriasCursandoComponent } from './materias-cursando/materias-cursando
     AlumnoComponent,
     AdministradorComponent,
     ProyeccionMateriasComponent,
-    MateriasCursandoComponent
+    MateriasCursandoComponent,
+    MapaGraficoComponent
   ],
   imports: [
     CommonModule,
