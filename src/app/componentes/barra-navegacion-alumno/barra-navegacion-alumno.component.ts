@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-barra-navegacion',
-  templateUrl: './barra-navegacion.component.html',
-  styleUrls: ['./barra-navegacion.component.css']
+  selector: 'app-barra-navegacion-alumno',
+  templateUrl: './barra-navegacion-alumno.component.html',
+  styleUrls: ['./barra-navegacion-alumno.component.css']
 })
-export class BarraNavegacionComponent implements OnInit {
+export class BarraNavegacionAlumnoComponent implements OnInit {
 
   isCollapse = true;
   Nombre:string|null;
@@ -34,6 +34,7 @@ export class BarraNavegacionComponent implements OnInit {
   }
 
   Inicio(){
-    this.router.navigate(["/Administrador"])
+    this.router.navigate(["/Alumno"])
   }
+
 }

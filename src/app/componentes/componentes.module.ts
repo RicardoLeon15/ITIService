@@ -15,6 +15,7 @@ import { FormAgregarAlumnoComponent } from './form-agregar-alumno/form-agregar-a
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
 import { MateriasPorcursarComponent } from './materias-porcursar/materias-porcursar.component';
+import { BarraNavegacionAlumnoComponent } from './barra-navegacion-alumno/barra-navegacion-alumno.component';
 
 
 
@@ -32,7 +33,8 @@ import { MateriasPorcursarComponent } from './materias-porcursar/materias-porcur
     FormModificarPerfilAdministradorComponent,
     FormAgregarAlumnoComponent,
     FooterComponent,
-    MateriasPorcursarComponent
+    MateriasPorcursarComponent,
+    BarraNavegacionAlumnoComponent
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,9 @@ import { MateriasPorcursarComponent } from './materias-porcursar/materias-porcur
     MenuAlumnoComponent,
     FooterComponent,
     MenuAdministradorComponent,
-    MapaGraficoComponent
+    MapaGraficoComponent,
+    FormAgregarAlumnoComponent,
+    BarraNavegacionAlumnoComponent
   ]
 })
 export class ComponentesModule { }
