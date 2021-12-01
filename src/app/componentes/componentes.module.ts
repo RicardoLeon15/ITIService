@@ -13,6 +13,8 @@ import { FormModificarPerfilAlumnoComponent } from './form-modificar-perfil-alum
 import { FormModificarPerfilAdministradorComponent } from './form-modificar-perfil-administrador/form-modificar-perfil-administrador.component';
 import { FormAgregarAlumnoComponent } from './form-agregar-alumno/form-agregar-alumno.component';
 import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
+import { MateriasPorcursarComponent } from './materias-porcursar/materias-porcursar.component';
 
 
 
@@ -28,7 +30,9 @@ import { RouterModule } from '@angular/router';
     ProyecciondeMateriasComponent,
     FormModificarPerfilAlumnoComponent,
     FormModificarPerfilAdministradorComponent,
-    FormAgregarAlumnoComponent
+    FormAgregarAlumnoComponent,
+    FooterComponent,
+    MateriasPorcursarComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +43,10 @@ import { RouterModule } from '@angular/router';
   exports:[
     FormLoginComponent,
     BarraNavegacionComponent,
-    MenuAlumnoComponent
+    MenuAlumnoComponent,
+    FooterComponent,
+    MenuAdministradorComponent,
+    MapaGraficoComponent
   ]
 })
 export class ComponentesModule { }
