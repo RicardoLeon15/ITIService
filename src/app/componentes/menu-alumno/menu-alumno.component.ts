@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu-alumno',
@@ -7,8 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MenuAlumnoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private Ruta: Router) {
 
+   }
+
+  MapaGrafico() {
+    this.Ruta.navigate(['/MapaGrafico']);	
+    window.scrollTo(0, 0)
+  } 
   ngOnInit(): void {
   }
 
