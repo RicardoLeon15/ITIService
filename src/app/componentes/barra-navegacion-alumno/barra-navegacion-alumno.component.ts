@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class BarraNavegacionAlumnoComponent implements OnInit {
 
   isCollapse = true;
-  Nombre:string|null;
+  Alumno;
 
     toggleState(): void {
         let foo = this.isCollapse;
@@ -21,7 +21,7 @@ export class BarraNavegacionAlumnoComponent implements OnInit {
     if(a){
       var aux=JSON.parse(a); 
     }
-    this.Nombre = aux["nombre"];
+    this.Alumno = aux;
    }
 
   ngOnInit(): void {
