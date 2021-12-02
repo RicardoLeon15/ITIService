@@ -37,4 +37,24 @@ export class BarraNavegacionAlumnoComponent implements OnInit {
     this.router.navigate(["/Alumno"])
   }
 
+  Mapa(){
+    this.router.navigate(['/MapaGrafico']);
+  }
+
+  MateriasAprobadas(){
+    this.router.navigate(['/MateriasAprobadas']);
+  }
+
+  MateriasPorCursar(){
+    this.router.navigate(['/MateriasPorCursar']);
+  }
+
+  MateriasCursando(){
+    this.router.navigate(['/MateriasCursando']);
+  }
+
+  ProyeccionMaterias(){
+    this.router.navigate(['/ProyeccionMaterias'])
+  }
+
 }

@@ -5,17 +5,18 @@ import { BarraNavegacionComponent } from './barra-navegacion/barra-navegacion.co
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MenuAlumnoComponent } from './menu-alumno/menu-alumno.component';
 import { MenuAdministradorComponent } from './menu-administrador/menu-administrador.component';
-import { MapaGraficoComponent } from './mapa-grafico/mapa-grafico.component';
-import { MateriasAprobadasComponent } from './materias-aprobadas/materias-aprobadas.component';
-import { MateriasCursandoComponent } from './materias-cursando/materias-cursando.component';
 import { ProyecciondeMateriasComponent } from './proyeccionde-materias/proyeccionde-materias.component';
 import { FormModificarPerfilAlumnoComponent } from './form-modificar-perfil-alumno/form-modificar-perfil-alumno.component';
 import { FormModificarPerfilAdministradorComponent } from './form-modificar-perfil-administrador/form-modificar-perfil-administrador.component';
 import { FormAgregarAlumnoComponent } from './form-agregar-alumno/form-agregar-alumno.component';
 import { RouterModule } from '@angular/router';
 import { FooterComponent } from './footer/footer.component';
-import { MateriasPorcursarComponent } from './materias-porcursar/materias-porcursar.component';
 import { BarraNavegacionAlumnoComponent } from './barra-navegacion-alumno/barra-navegacion-alumno.component';
+import { AlumnosComponent } from './alumnos/alumnos.component';
+import { AprobadasMateriasComponent } from './aprobadas-materias/aprobadas-materias.component';
+import { PorCursarMateriasComponent } from './por-cursar-materias/por-cursar-materias.component';
+import { CursandoMateriasComponent } from './cursando-materias/cursando-materias.component';
+import { MapaComponent } from './mapa/mapa.component';
 
 
 
@@ -25,16 +26,17 @@ import { BarraNavegacionAlumnoComponent } from './barra-navegacion-alumno/barra-
     BarraNavegacionComponent,
     MenuAlumnoComponent,
     MenuAdministradorComponent,
-    MapaGraficoComponent,
-    MateriasAprobadasComponent,
-    MateriasCursandoComponent,
     ProyecciondeMateriasComponent,
     FormModificarPerfilAlumnoComponent,
     FormModificarPerfilAdministradorComponent,
     FormAgregarAlumnoComponent,
     FooterComponent,
-    MateriasPorcursarComponent,
-    BarraNavegacionAlumnoComponent
+    BarraNavegacionAlumnoComponent,
+    AlumnosComponent,
+    AprobadasMateriasComponent,
+    PorCursarMateriasComponent,
+    CursandoMateriasComponent,
+    MapaComponent
   ],
   imports: [
     CommonModule,
@@ -48,9 +50,14 @@ import { BarraNavegacionAlumnoComponent } from './barra-navegacion-alumno/barra-
     MenuAlumnoComponent,
     FooterComponent,
     MenuAdministradorComponent,
-    MapaGraficoComponent,
     FormAgregarAlumnoComponent,
-    BarraNavegacionAlumnoComponent
+    BarraNavegacionAlumnoComponent,
+    AlumnosComponent,
+    AprobadasMateriasComponent,
+    ProyecciondeMateriasComponent,
+    PorCursarMateriasComponent,
+    CursandoMateriasComponent,
+    MapaComponent
   ]
 })
 export class ComponentesModule { }

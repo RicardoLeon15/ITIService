@@ -7,6 +7,10 @@ import { LoginComponent } from './vistas/login/login.component';
 import { ProyeccionMateriasComponent } from './vistas/proyeccion-materias/proyeccion-materias.component';
 import { MapaGraficoComponent } from './vistas/mapa-grafico/mapa-grafico.component';
 import { AgregarAlumnoComponent } from './vistas/agregar-alumno/agregar-alumno.component';
+import { ListaAlumnosComponent } from './vistas/lista-alumnos/lista-alumnos.component';
+import { MateriasAprobadasComponent } from './vistas/materias-aprobadas/materias-aprobadas.component';
+import { MateriasPorCursarComponent } from './vistas/materias-por-cursar/materias-por-cursar.component';
+
 
 
 const routes: Routes = [
@@ -17,6 +21,9 @@ const routes: Routes = [
   {path: 'ProyeccionMaterias', component: ProyeccionMateriasComponent},
   {path: 'MapaGrafico', component:MapaGraficoComponent},
   {path: 'AgregarAlumno',component:AgregarAlumnoComponent},
+  {path: 'ListaAlumnos', component: ListaAlumnosComponent},
+  {path: 'MateriasAprobadas', component: MateriasAprobadasComponent},
+  {path: 'MateriasPorCursar', component: MateriasPorCursarComponent},
   {path: '**', pathMatch: 'full' ,redirectTo: 'login'}
 ];
 
