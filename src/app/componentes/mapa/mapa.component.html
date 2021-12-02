@@ -1,1 +1,64 @@
-<p>mapa works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col m-4">
+            <img class="mx-auto d-block img-fluid" src="/assets/imagenes/mapagrafico.png" alt=""> 
+        </div>
+    </div>
+    <div>
+            <div class="row">
+                <div class="col">
+                    <button class="btn btn-primary m-3" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button"
+                aria-expanded="false" aria-controls="multiCollapseExample1"> <img src="/assets/imagenes/iconobasico.png" class="img-fluid"
+                    alt="Icono basico">Nivel básico</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary m-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">
+                <img  class="img-fluid" src="/assets/imagenes/iconoformativo.png" alt="Icono formativo"> Nivel formativo</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary m-3" type="button" data-bs-toggle="collapse"
+                data-bs-target="#multiCollapseExample3" aria-expanded="false" aria-controls="multiCollapseExample3">
+                <img  class="img-fluid" src="/assets/imagenes/opciones.png" alt="Icono opciones">Asignaturas optativas</button>
+                </div>
+                <div class="col">
+                    <button class="btn btn-primary m-3" type="button" data-bs-toggle="collapse" data-bs-target=".multi-collapse"
+                aria-expanded="false"
+                aria-controls="multiCollapseExample1 multiCollapseExample2 multiCollapseExample3 "> <img
+                class="img-fluid" src="/assets/imagenes/iconover.png" alt="Icono ver">Ver todo</button>
+                </div>
+            </div>
+    </div>
+    <div class="row col-sm">
+        <div class="col-4">
+            <div class="collapse multi-collapse" id="multiCollapseExample1">
+                <div class="card card-body m-2">
+                    Se hablan de materias como: Intro a las matematicas, Intro a la programación, Formación humana,
+                    entre otras.
+                    <img  class="img-fluid" src="/assets/imagenes/basico.PNG" alt="Mapa materias basica">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="collapse multi-collapse" id="multiCollapseExample2">
+                <div class="card card-body">
+                    Se habla de materias como: Fundamentos de la programación lógica, Redes y Servicios, Administracion
+                    de base de datos, entre otras.
+                    <img   class="img-fluid" src="/assets/imagenes/formativo.PNG" alt="Mapa materias formativas">
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="collapse multi-collapse" id="multiCollapseExample3">
+                <div class="card card-body">
+                </div>
+                Se habla de las asignaturas optativas que puedes tomar, entre ellas estan las Optativas DESIT, consulta
+                tu oferta academica
+                la disponibilidad de estas.
+                <p> Recuerda que para cursar alguna optativa deberás verificar si cumples con el prerequisitos de
+                    materia.</p>
+                <img  src="/assets/imagenes/optiva.PNG" class="img-fluid" alt="Mapa asignaturas optativas">
+            </div>
+        </div>
+    </div>
+</div>
