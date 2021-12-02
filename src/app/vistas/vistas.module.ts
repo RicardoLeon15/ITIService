@@ -8,6 +8,9 @@ import { ProyeccionMateriasComponent } from './proyeccion-materias/proyeccion-ma
 import { MateriasCursandoComponent } from './materias-cursando/materias-cursando.component';
 import { MapaGraficoComponent } from './mapa-grafico/mapa-grafico.component';
 import { AgregarAlumnoComponent } from './agregar-alumno/agregar-alumno.component';
+import { ListaAlumnosComponent } from './lista-alumnos/lista-alumnos.component';
+import { MateriasAprobadasComponent } from './materias-aprobadas/materias-aprobadas.component';
+import { MateriasPorCursarComponent } from './materias-por-cursar/materias-por-cursar.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { AgregarAlumnoComponent } from './agregar-alumno/agregar-alumno.componen
     ProyeccionMateriasComponent,
     MateriasCursandoComponent,
     MapaGraficoComponent,
-    AgregarAlumnoComponent
+    AgregarAlumnoComponent,
+    ListaAlumnosComponent,
+    MateriasAprobadasComponent,
+    MateriasPorCursarComponent
   ],
   imports: [
     CommonModule,

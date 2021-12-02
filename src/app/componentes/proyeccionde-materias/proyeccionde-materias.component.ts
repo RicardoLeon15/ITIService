@@ -7,7 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyecciondeMateriasComponent implements OnInit {
 
-  constructor() { }
+  matricula:string;
+
+  constructor() {
+    let a = localStorage.getItem('token');
+    if(a){
+      var aux = JSON.parse(a);
+    }
+    this.matricula = aux['matricula'];
+   }
 
   ngOnInit(): void {
   }
