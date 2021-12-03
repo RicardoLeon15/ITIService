@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
+import Swal from 'sweetalert2';
 
 export interface PeriodicElement {
   Codigo: string;
@@ -20,10 +21,9 @@ const ELEMENT_DATA2: PeriodicElement[] = [
   { Codigo: 'ITIS 603', Nombre: 'Ingenieria de Conocimiento', Creditos: 6, Horas: 90 },
   { Codigo: 'ITIS 260', Nombre: 'Servios Web', Creditos: 6, Horas: 90 },
   { Codigo: 'ITIS 611', Nombre: 'Arquitectura de Software', Creditos: 6, Horas: 90 },
-].sort(() => 0.10 - Math.random());
+].sort(()=>0.10 - Math.random());
 
 const ELEMENT_DATA = ELEMENT_DATA2.slice(0, 10);
-
 
 @Component({
   selector: 'app-por-cursar-materias',
@@ -61,7 +61,15 @@ export class PorCursarMateriasComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${10}`;
   }
 
+EnviarDatos(){
+  Swal.fire({
+    icon:'success',
+    title:'Exito',
+    text:'Las materias han sido actualizdas',
+    confirmButtonText:'Aceptar'
+  });
 
+}
   ngOnInit(): void {
   }
 
