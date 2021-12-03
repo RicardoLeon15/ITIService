@@ -10,8 +10,11 @@
     	$registros = mysqli_query($conexion, "INSERT INTO Usuario(IdUsuario,Nombre,Paterno,Materno,Contrasenia) Values('$params->matricula','$params->nombre','$params->paterno','$params->materno','$params->contrasenia')");
 	    if($registros){
             $registros2 = mysqli_query($conexion,"INSERT INTO Alumno(Matricula,Carrera) VALUES('$params->matricula','$params->carrera')");
-            if($registros2)
-                echo true;
+            if($registros2){
+                $registros3 =mysqli_query($conexion,"INSERT INTO Cursando(Matricula,Codigo) VALUES('$params->matricula','ITIS 001'),('$params->matricula','ITIS 002'),('$params->matricula','ITIS 003'),('$params->matricula','FGUS 001'),('$params->matricula','FGUS 004')");
+                if($registros3)
+                    echo true;
+            }
             echo false;
         }
         echo false;
