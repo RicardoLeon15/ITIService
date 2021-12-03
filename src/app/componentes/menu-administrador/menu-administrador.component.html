@@ -1,6 +1,6 @@
 <br>
 <div>
-    <h3 style="text-align: center;"> Bienvenido</h3>
+    <h2 style="text-align: center;"> Bienvenido</h2>
 </div>
 
 <div>
@@ -10,15 +10,15 @@
 <div class="row align-items-start">
     <div class="card col-sm">
         <div class="card-body">
-            <h5 class="card-title">Alumnos</h5>
+            <h3 class="card-title">Alumnos</h3>
             <p class="card-text">Acceda y consulte la lista de alumnos que están registrados dentro del sistema, podrá 
                 observar el nombre, matricula y la carrera a la que esta inscrita.</p>
-            <a  class="btn btn-primary ">Ver alumnos</a>
+            <a  class="btn btn-primary " (click)="ListaAlumnosbtn()">Ver alumnos</a>
         </div>
     </div>
     <div class="card col-sm">
         <div class="card-body">
-            <h5 class="card-title">Agregar a un nuevo alumno</h5>
+            <h3 class="card-title">Agregar a un nuevo alumno</h3>
             <p class="card-text">Aqui podrá agregar a un nuevo alumno, añadiendo una matricula de acuerdo al ID
                 que se ingreso anteriormente. RECUERDE, para añadir un nuevo alumno debe estar registrado previamente.
             </p>
@@ -29,20 +29,19 @@
 <div class="row align-items-start">
     <div class="card col-sm">
         <div class="card-body">
-            <h5 class="card-title">Analisis de materias aprobadas</h5>
-            <p class="card-text">Podra analizar de manera general que materias han sido aprobadas
-                por los alumnos registrados.
+            <h3 class="card-title">Analisis de materias</h3>
+            <p class="card-text">Podrá analizar las materias de los alumnos, ya sea reprobadas o aprobadas.
             </p>
-            <a  class="btn btn-primary">Ver materias aprobadas</a>
+            <a  class="btn btn-primary" (click)="VerMaterias()">Ver materias </a>
         </div>
     </div>
     <div class="card col-sm">
         <div class="card-body">
-            <h5 class="card-title">Analisis de materias reprobadas</h5>
-            <p class="card-text">Podra analizar de manera general que materias han sido reprobadas
-                por los alumnos registrados.
+            <h3 class="card-title">Analisis de materias por cursar</h3>
+            <p class="card-text">Podra analizar de manera general que materias han sido solicitadas por los alumnos
+                de acuerdo a su proyección de materias.
             </p>
-            <a  class="btn btn-primary">Ver materias reprobadas</a>
+            <a  class="btn btn-primary" (click)="VerMateriasCursar()">Ver materias por cursar</a>
         </div>
     </div>
 </div>

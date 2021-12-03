@@ -18,4 +18,15 @@ export class MenuAdministradorComponent implements OnInit {
     this.router.navigate([redirect]);
   }
 
+  ListaAlumnosbtn(){
+    this.router.navigate(['/ListaAlumnos']);
+  }
+
+  VerMaterias(){
+    this.router.navigate(['/MateriasAprobadas']);
+  }
+
+  VerMateriasCursar(){
+    this.router.navigate(['/MateriasPorCursar']);
+  }
 }
