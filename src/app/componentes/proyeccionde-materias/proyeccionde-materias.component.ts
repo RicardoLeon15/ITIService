@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-proyeccionde-materias',
@@ -7,14 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyecciondeMateriasComponent implements OnInit {
 
-  matricula:string;
+  Matricula;
 
-  constructor() {
+  constructor(private router:Router) {
     let a = localStorage.getItem('token');
     if(a){
       var aux = JSON.parse(a);
     }
-    this.matricula = aux['matricula'];
+    this.Matricula = aux;
    }
 
   ngOnInit(): void {
