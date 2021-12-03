@@ -3,6 +3,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { first } from 'rxjs';
+import { AgregarCursandoService } from 'src/app/servicios/agregar-cursando.service';
 import { ListaAlumnosService } from 'src/app/servicios/lista-alumnos.service';
 import { ProyeccionMateriasService } from 'src/app/servicios/proyeccion-materias.service';
 import { MateriasAprobadasComponent } from 'src/app/vistas/materias-aprobadas/materias-aprobadas.component';
@@ -29,7 +30,7 @@ export class CursandoMateriasComponent implements OnInit {
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private proyeccion:ProyeccionMateriasService) {
+  constructor(private cursos:AgregarCursandoService) {
     // Create 100 users
      
     // Assign the data to the data source for the table to render
@@ -42,7 +43,7 @@ export class CursandoMateriasComponent implements OnInit {
     if(a){
       var aux=JSON.parse(a); 
     }
-    this.proyeccion.getProyeccion(aux["matricula"])
+    this.cursos.getProyeccion(aux["matricula"])
     .pipe(first())
     .subscribe(
       data=>{
@@ -52,6 +53,8 @@ export class CursandoMateriasComponent implements OnInit {
         this.dataSource.sort = this.sort;
       }
     )
+
+    this.cursos.cargarCambios(aux["matricula"])
   }
 
   applyFilter(event: Event) {
