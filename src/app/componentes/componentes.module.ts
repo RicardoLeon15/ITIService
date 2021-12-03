@@ -17,7 +17,11 @@ import { AprobadasMateriasComponent } from './aprobadas-materias/aprobadas-mater
 import { PorCursarMateriasComponent } from './por-cursar-materias/por-cursar-materias.component';
 import { CursandoMateriasComponent } from './cursando-materias/cursando-materias.component';
 import { MapaComponent } from './mapa/mapa.component';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {MatSortModule} from '@angular/material/sort'; 
 
 
 @NgModule({
@@ -42,7 +46,12 @@ import { MapaComponent } from './mapa/mapa.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MatPaginatorModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSortModule
   ],
   exports:[
     FormLoginComponent,

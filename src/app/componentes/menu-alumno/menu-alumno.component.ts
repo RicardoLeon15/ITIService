@@ -10,7 +10,7 @@ export class MenuAlumnoComponent implements OnInit {
 
   constructor(private Ruta: Router) {
 
-   }
+  }
 
   MapaGrafico() {
     this.Ruta.navigate(['/MapaGrafico']);	
