@@ -98,7 +98,7 @@ export class AprobadasMateriasComponent implements OnInit {
             text:'Las materias han sido actualizdas',
             confirmButtonText:'Aceptar'
           });
-          //this.ngAfterViewInit();
+          this.ngAfterViewInit();
         }
         else{
           Swal.fire({

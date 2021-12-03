@@ -5,6 +5,7 @@ import { ServiciosService } from 'src/app/servicios.service';
 import { first } from 'rxjs';
 
 import Swal from 'sweetalert2';
+import { ProyeccionMateriasService } from 'src/app/servicios/proyeccion-materias.service';
 
 export interface PeriodicElement {
   Codigo: string;
@@ -38,7 +39,7 @@ export class PorCursarMateriasComponent implements OnInit {
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
 
-  constructor(private listaser:ServiciosService) {
+  constructor(private listaser:ServiciosService,private pro:ProyeccionMateriasService) {
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource();
     
@@ -51,7 +52,7 @@ export class PorCursarMateriasComponent implements OnInit {
     }
     let Matricula = aux;
     console.log(Matricula);
-    this.listaser.getListaPorCursar(parseInt(Matricula.matricula))
+    this.pro.getProyeccion(aux["matricula"])
     .pipe(first())
     .subscribe(
       data=>{

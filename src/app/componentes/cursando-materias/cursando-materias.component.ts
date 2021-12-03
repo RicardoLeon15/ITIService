@@ -15,6 +15,7 @@ export interface PeriodicElement {
   Nombre: string;
   Creditos: number;
   Horas: number;
+  Matricula:string;
 }
 @Component({
   selector: 'app-cursando-materias',
@@ -84,7 +85,11 @@ export class CursandoMateriasComponent implements OnInit {
   }
   
   EnviarDatos(){
-    /*this.listaser.agregarAprobadas(JSON.stringify(this.selection.selected))
+    let a=localStorage.getItem('token');
+    if(a){
+      var aux=JSON.parse(a); 
+    }
+    this.proyeccion.agregarCursando(JSON.stringify(this.selection.selected),aux['matricula'])
     .pipe(first())
     .subscribe(
       data=>{
@@ -95,7 +100,7 @@ export class CursandoMateriasComponent implements OnInit {
             text:'Las materias han sido actualizdas',
             confirmButtonText:'Aceptar'
           });
-          //this.ngAfterViewInit();
+          this.ngAfterViewInit();
         }
         else{
           Swal.fire({
@@ -106,7 +111,6 @@ export class CursandoMateriasComponent implements OnInit {
           });
         }
       }
-    )
-*/
+    );
   }
 }
