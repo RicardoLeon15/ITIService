@@ -10,3 +10,7 @@ table {
   td, th {
     width: 25%;
   }
+
+  .def{
+    margin-left: auto;
+  }
