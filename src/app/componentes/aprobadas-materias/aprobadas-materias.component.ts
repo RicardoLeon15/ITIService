@@ -55,11 +55,15 @@ export class AprobadasMateriasComponent implements OnInit {
     if (!row) {
       return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
     }
+    
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${7}`;
   }
 
 
   ngOnInit(): void {
   }
-
+  
+  EnviarDatos(){
+    console.log(this.selection.selected[1]);
+  }
 }
