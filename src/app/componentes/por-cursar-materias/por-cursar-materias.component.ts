@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SelectionModel } from '@angular/cdk/collections';
 import { MatTableDataSource } from '@angular/material/table';
+import { ServiciosService } from 'src/app/servicios.service';
+import { first } from 'rxjs';
+
 import Swal from 'sweetalert2';
 
 export interface PeriodicElement {
@@ -10,7 +13,7 @@ export interface PeriodicElement {
   Horas: number;
 }
 
-const ELEMENT_DATA2: PeriodicElement[] = [
+const ELEMENT_DATA: PeriodicElement[] = [
   { Codigo: 'ITIS 259', Nombre: 'Diseño de la interación', Creditos: 6, Horas: 90 },
   { Codigo: 'ITIS 258', Nombre: 'Mineria de Datos', Creditos: 6, Horas: 90 },
   { Codigo: 'ITIS 261', Nombre: 'Control de Calidad de Software', Creditos: 6, Horas: 72 },
@@ -21,9 +24,8 @@ const ELEMENT_DATA2: PeriodicElement[] = [
   { Codigo: 'ITIS 603', Nombre: 'Ingenieria de Conocimiento', Creditos: 6, Horas: 90 },
   { Codigo: 'ITIS 260', Nombre: 'Servios Web', Creditos: 6, Horas: 90 },
   { Codigo: 'ITIS 611', Nombre: 'Arquitectura de Software', Creditos: 6, Horas: 90 },
-].sort(()=>0.10 - Math.random());
+]
 
-const ELEMENT_DATA = ELEMENT_DATA2.slice(0, 10);
 
 @Component({
   selector: 'app-por-cursar-materias',
@@ -32,19 +34,31 @@ const ELEMENT_DATA = ELEMENT_DATA2.slice(0, 10);
 })
 export class PorCursarMateriasComponent implements OnInit {
 
-  Matricula;
+  displayedColumns: string[] = ['select', 'position', 'Codigo', 'Nombre', 'Creditos', 'Horas'];
+  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  selection = new SelectionModel<PeriodicElement>(true, []);
 
-  constructor() {
+  constructor(private listaser:ServiciosService) {
+    // Assign the data to the data source for the table to render
+    this.dataSource = new MatTableDataSource();
+    
+  }
+
+  ngAfterViewInit() { 
     let a = localStorage.getItem('token');
     if(a){
       var aux = JSON.parse(a);
     }
-    this.Matricula = aux;
-   }
-
-  displayedColumns: string[] = ['select', 'position', 'Codigo', 'Nombre', 'Creditos', 'Horas'];
-  dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-  selection = new SelectionModel<PeriodicElement>(true, []);
+    let Matricula = aux;
+    console.log(Matricula);
+    this.listaser.getListaPorCursar(parseInt(Matricula.matricula))
+    .pipe(first())
+    .subscribe(
+      data=>{
+        this.dataSource = new MatTableDataSource(data);
+      }
+    )
+  }
 
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
@@ -71,17 +85,36 @@ export class PorCursarMateriasComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${10}`;
   }
 
-EnviarDatos(){
-  Swal.fire({
-    icon:'success',
-    title:'Exito',
-    text:'Las materias han sido actualizdas',
-    confirmButtonText:'Aceptar'
-  });
-
-}
   ngOnInit(): void {
   }
+
+EnviarDatos(){
+  this.listaser.agregarPorCursar(JSON.stringify(this.selection.selected))
+    .pipe(first())
+    .subscribe(
+      data=>{
+        if(data){
+          Swal.fire({
+            icon:'success',
+            title:'Exito',
+            text:'Se han enviado sus materias con exito',
+            confirmButtonText:'Aceptar'
+          });
+          //this.ngAfterViewInit();
+        }
+        else{
+          Swal.fire({
+            icon: 'error',
+            title:'Error',
+            text: 'No se pudo actualizar las materias',
+            confirmButtonText: 'Aceptar'
+          });
+        }
+      }
+    )
+
+  }
+
 
 }
 
