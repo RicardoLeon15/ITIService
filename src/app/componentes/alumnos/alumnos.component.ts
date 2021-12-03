@@ -4,12 +4,14 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { first } from 'rxjs';
 import { ListaAlumnosService } from 'src/app/servicios/lista-alumnos.service';
+import Swal from 'sweetalert2';
 
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  fruit: string;
+export interface Alumno {
+  Matricula: string;
+  Nombre: string;
+  Paterno: string;
+  Materno: string;
+  Carrera: string;
 }
 
 /** Constants used to fill up our data base. */
@@ -53,7 +55,7 @@ const NAMES: string[] = [
 export class AlumnosComponent implements OnInit {
 
   displayedColumns: string[] = ['matricula', 'nombre', 'carrera', 'accion'];
-  dataSource: MatTableDataSource<UserData>;
+  dataSource: MatTableDataSource<Alumno>;
   list: any[] | undefined;
 
   @ViewChild(MatPaginator)
@@ -62,10 +64,6 @@ export class AlumnosComponent implements OnInit {
   sort!: MatSort;
 
   constructor(private listaser:ListaAlumnosService) {
-    // Create 100 users
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-    
-    
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource();
     
@@ -96,19 +94,30 @@ export class AlumnosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-}
+  Eliminar(matricula: any){
+    this.listaser.deleteAlumno(matricula)
+    .pipe(first())
+    .subscribe(
+      data=>{
+        if(data){
+          Swal.fire({
+            icon:'success',
+            title:'Alumno eliminado',
+            text:'El alumno ha sido eliminado.',
+            confirmButtonText:'Aceptar'
+          });
+          //this.ngAfterViewInit();
+        }
+        else{
+          Swal.fire({
+            icon: 'error',
+            title:'Error',
+            text: 'El alumno no fue eliminado.',
+            confirmButtonText: 'Aceptar'
+          });
+        }
+      }
+    )
+  }
 
-function createNewUser(id: number): UserData {
-  const name =
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-    ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-    '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))],
-  };
 }
