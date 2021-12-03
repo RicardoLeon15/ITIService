@@ -14,39 +14,6 @@ export interface Alumno {
   Carrera: string;
 }
 
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
-
 @Component({
   selector: 'app-alumnos',
   templateUrl: './alumnos.component.html',
@@ -95,7 +62,17 @@ export class AlumnosComponent implements OnInit {
   }
 
   Eliminar(matricula: any){
-    this.listaser.deleteAlumno(matricula)
+    Swal.fire({
+      title: 'Eliminar Alumno',
+      text: "Deseas eliminar el registro de esta alumno.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, borrar registro.'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.listaser.deleteAlumno(matricula)
     .pipe(first())
     .subscribe(
       data=>{
@@ -106,7 +83,7 @@ export class AlumnosComponent implements OnInit {
             text:'El alumno ha sido eliminado.',
             confirmButtonText:'Aceptar'
           });
-          //this.ngAfterViewInit();
+          this.ngAfterViewInit();
         }
         else{
           Swal.fire({
@@ -117,7 +94,9 @@ export class AlumnosComponent implements OnInit {
           });
         }
       }
-    )
+    );
+      }
+    });
   }
 
 }
