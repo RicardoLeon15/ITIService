@@ -16,6 +16,27 @@ export class MenuAlumnoComponent implements OnInit {
     this.Ruta.navigate(['/MapaGrafico']);	
     window.scrollTo(0, 0)
   } 
+  
+  ProyeccionMaterias(){
+    this.Ruta.navigate(['/ProyeccionMaterias']);
+    window.scrollTo(0,0)
+  }
+
+  MateriasCursando(){
+    this.Ruta.navigate(['/MateriasCursando']);
+    window.scrollTo(0,0)
+  }
+
+  MateriasAprobadas(){
+    this.Ruta.navigate(['/MateriasAprobadas']);
+    window.scrollTo(0,0)
+  }
+
+  MateriasPorCursar(){
+    this.Ruta.navigate(['/MateriasPorCursar']);
+    window.scrollTo(0,0)
+  }
+
   ngOnInit(): void {
   }
 
