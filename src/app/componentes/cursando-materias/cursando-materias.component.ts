@@ -43,6 +43,7 @@ export class CursandoMateriasComponent implements OnInit {
     if(a){
       var aux=JSON.parse(a); 
     }
+
     this.cursos.getProyeccion(aux["matricula"])
     .pipe(first())
     .subscribe(
@@ -54,8 +55,9 @@ export class CursandoMateriasComponent implements OnInit {
       }
     )
 
-    this.cursos.cargarCambios(aux["matricula"])
+    
   }
+
 
   applyFilter(event: Event) {
     console.log("entro");
@@ -66,8 +68,10 @@ export class CursandoMateriasComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
-
+  
   ngOnInit(): void {
   }
 
+
+  
 }
