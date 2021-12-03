@@ -22,6 +22,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import {MatSortModule} from '@angular/material/sort'; 
+import {MatCheckboxModule} from '@angular/material/checkbox'; 
+
 
 
 @NgModule({
@@ -51,7 +53,8 @@ import {MatSortModule} from '@angular/material/sort';
     MatTableModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSortModule
+    MatSortModule,
+    MatCheckboxModule
   ],
   exports:[
     FormLoginComponent,
