@@ -1,18 +1,20 @@
-import {AfterViewInit, Component, ViewChild, OnInit} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {SelectionModel} from '@angular/cdk/collections';
 import {MatTableDataSource} from '@angular/material/table';
+import { MateriasAprobadasService } from 'src/app/servicios/materias-aprobadas.service';
 import { first } from 'rxjs';
-import { AgregarCursandoService } from 'src/app/servicios/agregar-cursando.service';
-import { ListaAlumnosService } from 'src/app/servicios/lista-alumnos.service';
+import Swal from 'sweetalert2';
 import { ProyeccionMateriasService } from 'src/app/servicios/proyeccion-materias.service';
-import { MateriasAprobadasComponent } from 'src/app/vistas/materias-aprobadas/materias-aprobadas.component';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 
-export interface UserData {
-  CodigoPre: string;
+
+
+export interface PeriodicElement {
   Codigo: string;
   Nombre: string;
-
+  Creditos: number;
+  Horas: number;
 }
 @Component({
   selector: 'app-cursando-materias',
@@ -21,18 +23,16 @@ export interface UserData {
 })
 export class CursandoMateriasComponent implements OnInit {
 
-  displayedColumns: string[] = ['matricula', 'nombre', 'carrera', 'accion','checkbox'];
-  dataSource: MatTableDataSource<UserData>;
-  list: any[] | undefined;
+  displayedColumns: string[] = ['select', 'position', 'Codigo', 'Nombre', 'Creditos', 'Horas'];
+  dataSource = new MatTableDataSource<PeriodicElement>();
+  selection = new SelectionModel<PeriodicElement>(true, []);
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
   @ViewChild(MatSort)
   sort!: MatSort;
 
-  constructor(private cursos:AgregarCursandoService) {
-    // Create 100 users
-     
+  constructor(private proyeccion:ProyeccionMateriasService) {
     // Assign the data to the data source for the table to render
     this.dataSource = new MatTableDataSource();
     
@@ -43,35 +43,70 @@ export class CursandoMateriasComponent implements OnInit {
     if(a){
       var aux=JSON.parse(a); 
     }
-
-    this.cursos.getProyeccion(aux["matricula"])
+    this.proyeccion.getProyeccion(aux["matricula"])
     .pipe(first())
     .subscribe(
       data=>{
         this.dataSource = new MatTableDataSource(data);
-        console.log(data);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
       }
     )
-
-    
+  }
+  /** Whether the number of selected elements matches the total number of rows. */
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
   }
 
-
-  applyFilter(event: Event) {
-    console.log("entro");
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    if (this.isAllSelected()) {
+      this.selection.clear();
+      return;
     }
+
+    this.selection.select(...this.dataSource.data);
   }
-  
+
+  /** The label for the checkbox on the passed row */
+  checkboxLabel(row?: PeriodicElement): string {
+    if (!row) {
+      return `${this.isAllSelected() ? 'deselect' : 'select'} all`;
+    }
+    
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${7}`;
+  }
+
+
   ngOnInit(): void {
   }
-
-
   
+  EnviarDatos(){
+    /*this.listaser.agregarAprobadas(JSON.stringify(this.selection.selected))
+    .pipe(first())
+    .subscribe(
+      data=>{
+        if(data){
+          Swal.fire({
+            icon:'success',
+            title:'Exito',
+            text:'Las materias han sido actualizdas',
+            confirmButtonText:'Aceptar'
+          });
+          //this.ngAfterViewInit();
+        }
+        else{
+          Swal.fire({
+            icon: 'error',
+            title:'Error',
+            text: 'No se pudo actualizar las materias',
+            confirmButtonText: 'Aceptar'
+          });
+        }
+      }
+    )
+*/
+  }
 }

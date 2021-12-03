@@ -7,7 +7,7 @@
     require_once("ConexionBD.php");
     $conexion = conexion();
     $datos=[];
-	$registros = mysqli_query($conexion,"SELECT materia.Codigo, materia.Nombre, materia.Creditos, materia.HorasPeriodoPT FROM aprobado INNER JOIN prerrequisito ON aprobado.Codigo = prerrequisito.CodigoPre INNER JOIN materia on materia.Codigo = prerrequisito.Codigo where aprobado.Matricula = '$params->matricula'");
+	$registros = mysqli_query($conexion,"call tabla_cursando('$params->matricula')");
     while($resultado = mysqli_fetch_assoc($registros)){
         $datos[]=$resultado;
     }
