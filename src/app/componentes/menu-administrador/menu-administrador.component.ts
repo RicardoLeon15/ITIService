@@ -23,10 +23,10 @@ export class MenuAdministradorComponent implements OnInit {
   }
 
   VerMaterias(){
-    this.router.navigate(['/MateriasAprobadas']);
+    this.router.navigate(['/AnalisisMaterias']);
   }
 
   VerMateriasCursar(){
-    this.router.navigate(['/MateriasPorCursar']);
+    this.router.navigate(['/AnalisisMateriasPorCursar']);
   }
 }

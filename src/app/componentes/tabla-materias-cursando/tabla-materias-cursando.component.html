@@ -1,0 +1,50 @@
+<mat-form-field appearance="standard">
+    <mat-label>Buscar...</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Código, Nombre, Horas, Creditos, Cantidad de alumnos, etc..." #input>
+  </mat-form-field>
+  
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+  
+      <!-- ID Column -->
+      <ng-container matColumnDef="codigo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Código </th>
+        <td mat-cell *matCellDef="let row">{{row.Codigo}}</td>
+      </ng-container>
+  
+      <!-- Progress Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombre </th>
+        <td mat-cell *matCellDef="let row">{{row.Nombre}}</td>
+      </ng-container>
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="creditos">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Creditos </th>
+        <td mat-cell *matCellDef="let row">{{row.Creditos}}</td>
+      </ng-container>
+  
+      <!-- Fruit Column -->
+      <ng-container matColumnDef="horas">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Horas </th>
+        <td mat-cell *matCellDef="let row">{{row.HorasPeriodoPT}}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="alumnos">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cantidad de alumnos </th>
+        <td mat-cell *matCellDef="let row">{{row.Alumnos}}</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+  
+

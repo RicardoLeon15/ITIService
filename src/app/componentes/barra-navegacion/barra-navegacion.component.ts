@@ -45,5 +45,12 @@ export class BarraNavegacionComponent implements OnInit {
     this.router.navigate(['/AgregarAlumno']);
   }
 
+  AnalisisMaterias(){
+    this.router.navigate(['/AnalisisMaterias']);
+  }
+
+  AnalisisMateriasPorCursar(){
+    this.router.navigate(['/AnalisisMateriasPorCursar']);
+  }
 
 }

@@ -11,6 +11,8 @@ import { AgregarAlumnoComponent } from './agregar-alumno/agregar-alumno.componen
 import { ListaAlumnosComponent } from './lista-alumnos/lista-alumnos.component';
 import { MateriasAprobadasComponent } from './materias-aprobadas/materias-aprobadas.component';
 import { MateriasPorCursarComponent } from './materias-por-cursar/materias-por-cursar.component';
+import { AnalisisMateriasPorCursarComponent } from './analisis-materias-por-cursar/analisis-materias-por-cursar.component';
+import { AnalisisMateriasComponent } from './analisis-materias/analisis-materias.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { MateriasPorCursarComponent } from './materias-por-cursar/materias-por-c
     AgregarAlumnoComponent,
     ListaAlumnosComponent,
     MateriasAprobadasComponent,
-    MateriasPorCursarComponent
+    MateriasPorCursarComponent,
+    AnalisisMateriasPorCursarComponent,
+    AnalisisMateriasComponent
   ],
   imports: [
     CommonModule,
