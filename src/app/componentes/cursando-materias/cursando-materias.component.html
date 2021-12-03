@@ -33,7 +33,7 @@
       <!-- ID Column -->
       <ng-container matColumnDef="checkbox">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Cursando </th>
-        <td mat-cell *matCellDef="let row"><input type="checkbox" name="SiCursa[]" value="cursando"></td>
+        <td mat-cell *matCellDef="let row"><input type="checkbox" name="SiCursa[]" value={{row.Codigo}}></td>
       </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
