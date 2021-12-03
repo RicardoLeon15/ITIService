@@ -12,12 +12,13 @@ export interface Materia {
   Horas: string;
   Alumnos: string;
 }
+
 @Component({
-  selector: 'app-tabla-materias-por-cursar',
-  templateUrl: './tabla-materias-por-cursar.component.html',
-  styleUrls: ['./tabla-materias-por-cursar.component.css']
+  selector: 'app-tabla-materias-aprobadas',
+  templateUrl: './tabla-materias-aprobadas.component.html',
+  styleUrls: ['./tabla-materias-aprobadas.component.css']
 })
-export class TablaMateriasPorCursarComponent implements OnInit {
+export class TablaMateriasAprobadasComponent implements OnInit {
 
   displayedColumns: string[] = ['codigo', 'nombre', 'creditos', 'horas', 'alumnos'];
   dataSource: MatTableDataSource<Materia>;
@@ -32,7 +33,7 @@ export class TablaMateriasPorCursarComponent implements OnInit {
    }
 
    ngAfterViewInit() { 
-    this.aprobadas.getMateriasPorCursar()
+    this.aprobadas.getMateriasAprobadas()
     .pipe(first())
     .subscribe(
       data=>{

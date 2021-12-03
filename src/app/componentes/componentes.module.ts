@@ -27,6 +27,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { TablaMateriasPorCursarComponent } from './tabla-materias-por-cursar/tabla-materias-por-cursar.component';
 import { TablaMateriasComponent } from './tabla-materias/tabla-materias.component';
+import { TablaMateriasAprobadasComponent } from './tabla-materias-aprobadas/tabla-materias-aprobadas.component';
+import { TablaMateriasCursandoComponent } from './tabla-materias-cursando/tabla-materias-cursando.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +48,9 @@ import { TablaMateriasComponent } from './tabla-materias/tabla-materias.componen
     CursandoMateriasComponent,
     MapaComponent,
     TablaMateriasPorCursarComponent,
-    TablaMateriasComponent
+    TablaMateriasComponent,
+    TablaMateriasAprobadasComponent,
+    TablaMateriasCursandoComponent
   ],
   imports: [
     CommonModule,
