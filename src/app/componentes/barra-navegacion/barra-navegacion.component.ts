@@ -34,6 +34,16 @@ export class BarraNavegacionComponent implements OnInit {
   }
 
   Inicio(){
-    this.router.navigate(["/Administrador"])
+    this.router.navigate(["/Administrador"]);
   }
+
+  VerAlumnos(){
+    this.router.navigate(['/ListaAlumnos']);
+  }
+
+  AnadirAlumnos(){
+    this.router.navigate(['/AgregarAlumno']);
+  }
+
+
 }
