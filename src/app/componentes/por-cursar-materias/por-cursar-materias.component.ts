@@ -32,6 +32,16 @@ const ELEMENT_DATA = ELEMENT_DATA2.slice(0, 10);
 })
 export class PorCursarMateriasComponent implements OnInit {
 
+  Matricula;
+
+  constructor() {
+    let a = localStorage.getItem('token');
+    if(a){
+      var aux = JSON.parse(a);
+    }
+    this.Matricula = aux;
+   }
+
   displayedColumns: string[] = ['select', 'position', 'Codigo', 'Nombre', 'Creditos', 'Horas'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   selection = new SelectionModel<PeriodicElement>(true, []);
