@@ -10,6 +10,8 @@ import { AgregarAlumnoComponent } from './vistas/agregar-alumno/agregar-alumno.c
 import { ListaAlumnosComponent } from './vistas/lista-alumnos/lista-alumnos.component';
 import { MateriasAprobadasComponent } from './vistas/materias-aprobadas/materias-aprobadas.component';
 import { MateriasPorCursarComponent } from './vistas/materias-por-cursar/materias-por-cursar.component';
+import { AnalisisMateriasComponent } from './vistas/analisis-materias/analisis-materias.component';
+import { AnalisisMateriasPorCursarComponent } from './vistas/analisis-materias-por-cursar/analisis-materias-por-cursar.component';
 
 
 
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path: 'ListaAlumnos', component: ListaAlumnosComponent},
   {path: 'MateriasAprobadas', component: MateriasAprobadasComponent},
   {path: 'MateriasPorCursar', component: MateriasPorCursarComponent},
+  {path: 'AnalisisMaterias',component:AnalisisMateriasComponent},
+  {path: 'AnalisisMateriasPorCursar', component:AnalisisMateriasPorCursarComponent},
   {path: '**', pathMatch: 'full' ,redirectTo: 'login'}
 ];
 
